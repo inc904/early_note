@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj1 = {
+            name: 'adc',
+            age: 18,
+            hobbies: [123, 234]
+        }
+        var obj2 = obj1
+        obj2.age = 20
+        console.log(obj1.age, obj2.age) // 20 20
+
+        function clone(obj) {
+            let temp = null
+            if (obj instanceof Array) {
+                temp = obj.concat()
+            } else if (obj instanceof Function) {
+                // 函数的欧共享是无所谓的，js中没有什么办法可以在定义后在修改函数的内容
+                temp = obj
+            } else {
+                temp = new Object
+                for (let item in obj) {
+                    let val = obj[item]
+                    temp[item] = typeof val === 'Object' ? clone(val) : val
+                }
+            }
+            return temp
+        }
+        function deepClone(obj) {
+            let objClone = Array.isArray(obj) ? [] : {};
+            if (obj && typeof obj === "object") {
+                for (key in obj) {
+                    if (obj.hasOwnProperty(key)) {
+                        //判断ojb子元素是否为对象，如果是，递归复制
+                        if (obj[key] && typeof obj[key] === "object") {
+                            objClone[key] = deepClone(obj[key]);
+                        } else {
+                            //如果不是，简单复制
+                            objClone[key] = obj[key];
+                        }
+                    }
+                }
+            }
+            return objClone;
+        }
+    </script>
+</body>
+
+</html>

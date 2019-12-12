@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #000;
+        }
+        .box{
+            width: 200px;
+            height: 400px;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: relative;
+            border: 1px solid #fff;
+        }
+        .box:after{
+            content:'';
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            left: -2px;
+            bottom: -2px;
+            background-color: #FFF;
+            transform: skew(2deg, 2deg);
+            z-index: -1;
+            background: linear-gradient(315deg, #ff0057, #e64a19);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+    123
+    </div>
+    <script>
+    // obj.style.* 的方式只能当前的获取行内样式
+    /*
+        obj： 要获样式的元素
+        name：样式属性的名称
+    */
+    function getStyle(obj) {
+        if (window.getComputedStyle) {
+            // 正常浏览器写法
+            // 第二个参数：指定一个要匹配的伪元素的字符串，如是普通元素省略或者null
+            return getComputedStyle(obj, null)[name]
+        } else {
+            // 兼容旧版本IE
+            return obj.currentStyle[name]
+        }
+    }
+    // 获取元素的高度
+    // let theCSSprop = window.getComputedStyle(obj,null).getPropertyValue("height");
+    </script>
+</body>
+
+</html>

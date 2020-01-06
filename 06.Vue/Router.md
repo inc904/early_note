@@ -86,7 +86,37 @@ const router = new VueRouter({
       ]
     }
   ]
-})
+}) 
+
 ```
 
-### 
+### 路由高亮
+
+#### active-class
+
+默认值：“router-link-active”
+
+设置链接激活时使用的CSS类名。默认值可以通过路由的构造选项`linkActiveClass`来全局配置。
+
+#### 第一种方式：使用vue内置的属性
+
+```css
+.router-link-active{
+    font-size: 32px;
+    color: red;
+}
+```
+
+#### 第二种方式：自定义样式
+
+在新建的路由对象内部设置`linkActiveClss`属性，该属性和`routes`属性平级
+
+`linkActiveClass: 'myActive'`
+
+```css
+.myActive{
+    font-size: 32px;
+    color: red;
+}
+```
+

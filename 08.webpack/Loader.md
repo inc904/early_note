@@ -51,7 +51,7 @@ npm install sass-loader node-sass webpack --save-dev
 
 ```js
 rules: [
-		{test: /\.sass$/, use:['style-loader', 'css-loader','sass-loader']} 
+		{test: /\.scss$/, use:['style-loader', 'css-loader','sass-loader']} 
 ]
 ```
 
@@ -130,7 +130,7 @@ rules: [
  ```
  3. .babelrc 配置 或者 babel.config.js，两种方式都可以
 
-    .babel 文件
+    .babelrc文件
 
  ```json
 {

@@ -1,16 +1,15 @@
-- create project folder
+### create project folder
 
 ```shell
 mkdir new_project
 cd new_project
-
 ```
 
-- npm init 初始化 项目
+### npm init 初始化 项目
 
-- npm i webpack webpack-cli
+### npm i webpack webpack-cli
 
-- 配置`package.json`
+### 配置 `package.json`
 
 ```
 "script": {
@@ -20,7 +19,7 @@ cd new_project
 
 `npm run dev` 可以 执行 预设 的命令进行打包
 
-- 配置`webpack.config.js`
+### 配置 `webpack.config.js`
 
 可以默认配置，或者可以自己配置。
 
@@ -28,46 +27,55 @@ cd new_project
 const path = require('path')
 module.exports = {
 	mode: 'development',
-	entry: './src/index.js', 
+	entry: './src/index.js',
 	output: {
 		// path: path.join(__dirname, 'dist'),
 		// path: path.resolve(__dirname, 'dist'),
 		path: path.resolve(process.cwd(), 'dist'),
 		filename: 'main.js'
 	}
- 
+
 }
 # process.cwd() ？？？
 ```
 
 ```js
 module.exports = {
-	// entry 可以配置一个对象，从而，配置多个入口文件，
-	entry: {
-		home: './src/home.js',
-		about: './src/about.js'
-	},
-	output: {
-		path: path.resolve(__dirname, 'dist'),
-		// filename: '[name].[chash].js'
-		filename: '[name].[chunkHash:8].js'
-	}
+  // entry 可以配置一个对象，从而，配置多个入口文件，
+  entry: {
+    home: './src/home.js',
+    about: './src/about.js'
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    // filename: '[name].[chash].js'
+    filename: '[name].[chunkHash:8].js'
+  }
 }
 ```
-- css 预处理器
-- 图片资源预处理器
-- 静态资源
-- babel
-- cra
-- 类组件
-- jsx原理
 
-- 目录结构
-	- 组件的目录结构
-	1. 单个组件大驼峰命名目录
-	2. 组件 写在 index.js 文件中
-	3. 私有组件 直接写在 当前调用的组件文件夹内
-	4. 导出： 在 components/index.js  统一处理 导出逻辑
+### css 预处理器
+
+### 图片资源预处理器
+
+### 静态资源
+
+### babel
+
+### cra
+
+### 类组件
+
+### jsx 原理
+
+### 目录结构
+
+#### 组件的目录结构
+
+1.  单个组件大驼峰命名目录
+2.  组件 写在 index.js 文件中
+3.  私有组件 直接写在 当前调用的组件文件夹内
+4.  导出： 在 components/index.js 统一处理 导出逻辑
 
 ```js
 // 目录结构：
@@ -93,18 +101,17 @@ import TodoList from './TodoList'
 // }
 
 // or
-export {default as TodoHeader} from './TodoHeader'
-export {default as TodoInput} from './TodoInput'
-export {default as TodoList} from './TodoList'
-
-
-
+export { default as TodoHeader } from './TodoHeader'
+export { default as TodoInput } from './TodoInput'
+export { default as TodoList } from './TodoList'
 ```
 
-- fragment 空白组件
+### Fragment 空白组件
 
-- props: 组件的数据挂载
-父组件给子组件传值
+### props: 组件的数据挂载
+
+#### 父组件给子组件传值
+
 ```jsx
 // 父组件
 render(){
@@ -118,12 +125,10 @@ render(){
 // 子组件
 通过 props 可以拿到 props： {desc:'somrthing', children: '待办事项'}
 ```
-- prop-types 进行类型校验
 
-```shell
-npm i prop-type
-```
+### prop-types 进行类型校验
 
+执行安装命令：`npm i prop-type`
 
 ```js
 import ReactTypes from 'prop-type'
@@ -134,7 +139,6 @@ TodoHeader.ReactTypes = {
 	x: ReactTypes.number.isRequired
 }
 
-
 // 有状态组件的校验
 static defaultProps = {
 	count: 0 // 为 props 设置默认值
@@ -144,4 +148,34 @@ static defaulTypes = {
 }
 ```
 
-- 组件的内部数据 state
+### 组件的内部数据 state
+
+this.state.someData 读取 data
+
+this.setState({}) 设置 data
+
+#### setState 是异步的
+
+```js
+this.setState(
+  prevState => {
+    return {
+      isLiked: !prevState.isLiked
+    }
+  },
+  () => {
+    // 这里获取到的 才是最新的
+    console.log(this.state.isLiked)
+  }
+)
+```
+
+### 渲染富文本内容 dangerouslySetInnerHTML,接收一个 `__html` 对象
+
+```js
+function MyComponent() {
+  return <div dangerouslySetInnerHTML={{ __html: this.state.article }} />
+}
+```
+
+### 事件

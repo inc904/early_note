@@ -20,7 +20,13 @@
 切换编辑的标签页 Ctrl + Tab
 选定光标处至文档首行 就是光标处作为分割线,取文档上部分 Ctrl + Shift + Home
 选定光标处至文档尾行 就是光标处作为分割线,取文档下部分 Ctrl + Shfit + End
+
+
+
 --------------------- 
+
+
+
 作者：MangoStudio
 来源：CSDN
 原文：https://blog.csdn.net/qq_30993595/article/details/81712120

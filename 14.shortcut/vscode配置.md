@@ -200,3 +200,21 @@
 }
 ```
 
+# vscode报错，不符和eslint规范，保存时单引号变双引号，代码尾部分号和逗号自动去除
+
+在项目根目录下新建.prettierrc（prettier插件的配置文件）文件，在文件中写入
+
+```json
+{
+  "semi": true,//在代码尾部添加分号
+  "singleQuote": true,//把双引号换成单引号
+  "trailingComma": "es5"//在代码尾部添加逗号
+}
+```
+
+在.eslintrc.js（eslint插件的配置文件）文件中的rules属性中添加
+
+```js
+'no-unused-vars': 'warn',//把该条提示信息转换成警告信息
+```
+

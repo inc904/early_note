@@ -116,6 +116,7 @@ export { default as TodoList } from './TodoList'
 // 父组件
 render(){
 	return (
+        // 使用子组件的时候，传值
 		<TodoHeader desc="something" x={1}>
 			待办事项
 		</TodoHeader>
@@ -124,6 +125,15 @@ render(){
 
 // 子组件
 通过 props 可以拿到 props： {desc:'somrthing', children: '待办事项'}
+// 在子组件中渲染
+render(){
+    return (
+    	<div>
+        	<h1>{this.props.children}</h1>
+            <h2>{this.props.desc}</h2>
+        </div>
+    )
+}
 ```
 
 ### prop-types 进行类型校验
@@ -137,6 +147,9 @@ import ReactTypes from 'prop-type'
 TodoHeader.ReactTypes = {
 	desc: ReactTypes.string,
 	x: ReactTypes.number.isRequired
+}
+TodoHeader.defaulTypes = {
+	count： ReactTypes.number // 为props 设置 类型校验
 }
 
 // 有状态组件的校验
@@ -179,3 +192,185 @@ function MyComponent() {
 ```
 
 ### 事件
+
+#### onChange 事件处理表单输入
+
+```js
+constructor(){
+  this.state = {
+    inputValue: 'something else'
+  }
+}
+handleInputChange= (e) => {
+  this.setState({
+    inputValue: e.currentTarget.value
+  })
+}
+render(){
+  return (
+    <div>
+      <input
+      type="text"
+      value={this.state.inputValue}
+      onChange={this.handleInputChange}
+      />
+    </div>
+  )
+}
+```
+
+
+
+### ref及键盘事件
+
+### 生命周期
+
+### 使用Ajax
+
+- 安装axios
+
+  `npm i axios -S`
+
+
+
+### React-Hooks 
+
+需要先引入
+
+```js
+import React, {useState, useEffect} from 'react'
+
+// userState 是一个方法，方法的参数就是默认值；返回的结果是一个数组，数组的第个值就是 state, 第二个 相当于 setState
+// 解构出来
+const {count, setCount} = useState(0)
+`<span>{count}</span>`
+`<button onClick={()=>{ setCount(count + 1) }}></button>`
+// count => 0
+// setCount => func,
+
+useEffect(()=>{
+    // 组件的每次渲染，都会触发 useEffect，类似于 componentDidMount和componentDidUpdate
+})
+```
+
+### context
+
+### HOC
+
+#### 基础
+
+#### @装饰器模式
+
+1. 装包：`react-app-rewired`
+
+2. 安装之后，在`package.json`中将`scripts`里的`react-scripts`替换成`react-app-rewired`
+
+3.  在根目录中创建文件`config.oberrides.js`
+
+   ```js
+   mudule.exports = (config) => {
+       // 在这里去配置
+       reurn config
+   }
+   ```
+
+4. 配置更方便，安装`customize-cra`，然后`config-overrides.js`文件修改
+
+   ```js
+   const {override, addDecoratorsLegacy} = require('customize-cra')
+   module.exports = override(
+   	addDecoratorsLegacy()
+   )
+   ```
+
+   
+
+
+
+### 状态管理
+
+#### Flux 
+
+#### Redux
+
+### React Router
+
+### 安装
+
+```js
+npm i react-router-dom -S
+```
+
+### 组件
+
+`BrowserRouter` `HashRouter`
+
+`Route` `Link` `Redirect`
+
+### 路由API
+
+```js
+// params 传递 /artical/:id
+<Link to="/artical/2">首页</Link>
+// query 解析
+ <Link to="/artical/2?from=artical">首页</Link>
+// 使用 state 隐式传参
+ <Link to={{
+           pathname: '/artical/2',
+           state: { // 可以在 history 的 location 中拿到
+           from: 'artical'
+          }
+          }}>首页</Link>
+
+
+<Route component={Home} path="/home" />
+// 也可以用 render 函数进行渲染
+<Route render={(props) => {
+    // props 可以拿到 history 等参数，便于往下传递
+  return  <Home x={1} ...props />
+}} path="/home" />
+
+```
+
+### 编程式导航
+
+```js
+this.props.history.push('/home')
+this.props.history.push({
+    pathname: '/home',
+    state: {
+        id: this,props.match.parasm.id
+    }
+})
+```
+
+### 高阶组件
+
+`withRouter`
+
+### Mbox
+
+
+
+
+
+## 扩展
+
+### Immutable.js
+
+### 埋点：
+
+发送数据： 
+
+ 1. Ajax
+
+ 2. img 图片带参数
+
+    ```js
+    const img = new Image()
+    img.src="http://ssdsdd.c/1.png?x=1&y=2" // 兼容性
+    ```
+
+	3. sendBeacon
+
+    

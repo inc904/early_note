@@ -62,7 +62,7 @@
 
 - Component Diff：
 
-  在进行 tree Diff 的时候，每一程，组件级别的对比。
+  在进行 Tree Diff 的时候，每一层，组件级别的对比。
 
   - 如果对比前后，组建的类型相同，则`暂时`认为此组件不需要被更新
   - 如果对比前后，组件的类型不同，则需要移除旧组件，创建新的组件，并追加到页面上。
@@ -159,7 +159,7 @@ npm i react react-dom @babel/standalone
   - `componentWillUnmount`：
   - 此时组件将要被卸载
 
-  ​
+  
 
 ## getChildrenContextTypes 越组件传值方式
 

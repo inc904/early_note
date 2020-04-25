@@ -7,7 +7,7 @@ MDN[<https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch>]
 - fetch不是ajax的进一步封装，而是原生的js，内部没有使用XMLHttprequest对象。
 
 - `fetch(url, options).then()`
-  
+
   ```js
   /*
         Fetch API 基本用法
@@ -55,7 +55,8 @@ MDN[<https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch>]
             })
             .then(function(data) {
                 return data.text();
-            }).then(function(data) {
+            })
+            .then(function(data) {
                 console.log(data)
             });
 
@@ -139,3 +140,4 @@ MDN[<https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch>]
       console.log(obj.uname,obj.age,obj.gender)
     })
 ```
+

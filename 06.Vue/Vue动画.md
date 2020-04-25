@@ -30,8 +30,10 @@
 #### 初始渲染的过渡
   `appear` 设定元素在初始渲染的过渡
   1. appear 属性
+
     `<transition appear></transition>`
   2. 自定义钩子函数
+
     `v-on:appear`
 #### 多个元素的过渡
   原生标签 使用 `v-if/v-else`

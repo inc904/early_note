@@ -34,6 +34,7 @@ this.$http.get('/someURL', [options])
   2. post
   3. jsonp
   4. jsonp实现原理
+
     - 由于浏览器安全性限制，不允许 AJAX 访问 协议不同、域名不同、端口号不同的数据接口
     - 可以通过动态常见 Script 标签的形式，把 script 标签的 src 属性，指向数据接口的地址因为 script 标签存在跨域限制，这种属性获取方式称作 JSONP 。
      （根据 JSONP 的实现原理，知晓 jsonp 只支持 get 请求）

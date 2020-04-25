@@ -1,3 +1,5 @@
+
+
 ## Vue 实例
 
 ```js
@@ -170,7 +172,12 @@ data: {
 ## 条件渲染
 
 - v-if
+
+  直接删除元素
+
 - v-show
+
+  控制样式 的显隐
 
 ## 列表渲染
 
@@ -228,6 +235,161 @@ key 属性只能使用 Number/String
 ### 表单输入绑定
 
 - v-model
+
+
+
+
+
+## 插槽
+
+### 普通插槽：
+
+```js
+  Vue.component('AlertBox', {
+      template: `
+        <div class="demo-alert-box">
+        	<strong>普通插槽：Error!</strong>
+	        <slot></slot>
+        </div>
+		`
+  })
+```
+
+```html
+ <alert-box>
+     Something bad happened.
+</alert-box>
+<!-- 普通插槽：Error! Something bad happened. -->
+```
+
+### 具名插槽：
+
+```js
+    Vue.component('success-box', {
+        template: `
+          <div class="demo-alert-box">
+            <strong>具名插槽：success!</strong>
+            <p>
+              成功：              
+              <slot name="success" />
+            </p>
+            <p>
+              下一步：
+              <slot name="main" />
+            </p>
+          </div>
+        `
+      })
+```
+
+```html
+
+ <success-box>
+     <template v-slot:success>
+         <!-- 命名缩写   <template #success> -->
+        <p>
+             everything is ok !
+         </p>
+        
+     </template>
+     
+     <!-- 插槽缩写 
+         <p slot="success">
+             everything is ok !
+         </p>
+      -->
+     
+     <template v-slot:main>
+         go for a breast。
+     </template>
+</success-box>
+<!-- 
+具名插槽：success!
+成功： everything is ok !
+
+下一步： go for a breast。
+-->
+```
+
+### 作用域插槽
+
+```js
+   Vue.component('info-box', {
+        data: () => {
+          return {
+            student: {
+              name: 'jax',
+              age: 13
+            }
+          }
+        },
+        template: `
+          <div class="demo-alert-box">
+            <strong> 作用域插槽：infomation:</strong>
+            <slot name="info" :student="student"></slot> // 将组件上的实例属性作为属性传递给插槽
+          </div>
+        `
+      })
+```
+
+
+
+```html
+ <info-box>
+        <template v-slot:info="student"> // 在插槽上的属性 成为 插槽Prop，使用带值得 v-slot 定义 prop 得名字
+          <p>
+            school: {{school.name}} // 可以直接访问父组件上的实例属性
+          </p>
+          <p>
+            name:{{student.student.name}}
+          </p>
+          <p>
+            age:{{student.student.age}}
+          </p>
+        </template>
+      </info-box>
+
+
+<!-- 
+作用域插槽：infomation:
+school: 清华
+
+name:jax
+
+age:13
+-->
+```
+
+1. 当只有默认插槽得时候，v-slot:default="somethin" 缩写  v-solt="something"
+2. 默认插槽得缩写语法不能和具名插槽混用
+3. 只要出现多个插槽，必须为所有得插槽命名
+
+##### 解构prop
+
+```html
+ <info-box>
+<!-- 解构前 <template v-slot:info="student"> -->
+     <template v-slot:info="{student}">
+     
+         <p>
+             <-解构prop->
+                 </p>
+         <p>
+             school: {{school.name}}
+         </p>
+         <p>
+<!--解构前    name:{{student.student.name}} -->
+             name:{{student.name}}
+             
+         </p>
+         <p>
+             age:{{student.age}}
+         </p>
+     </template>
+</info-box>
+```
+
+
 
 ## vue 实例的生命周期
 
@@ -338,210 +500,3 @@ methods: {
 
 
 
-## 组件
-
-组件化：UI模块的角度。
-
-模块化：代码逻辑的角度。
-
-### 定义组件的三种方式
-
-1.使用`Vue.extend`配合`Vue.component`
-
-```js
-var login = Vue.extend({
-    template: '<h1>登录</h1>'
-})
-Vue.component('login', login)
-```
-
-2. 使用 Vue.component
-
-```js
-Vue.component('resgister',{
-    template: '<h1>注册</h1>'
-})
-```
-
-3. 将模板字符串定义到 script 标签中
-
-```html
-<script id="tmpl" type="x-template">
-    <div> <a>登录</a> | <a>注册</a> </div>
-</script>
-```
-
-同时使用 Vue.component 来定义组件
-
-```js
-Vue.component('account', {
-    template: '#tmpl'
-})
-```
-
-### 组件名大小写
-
-1. kebab-case
-
-```js
-Vue.component('my-component-name', { /* ... */ })
-```
-
-引用组件的使用也必须使用 `<my-component-name>`
-
-1. pasclaCase
-
-```js
-Vue.component('MyComponentName', { /* ... */ })
-```
-
-引用组件的时候，两种方式都可以。`<my-component-name>` 和 `MyComponentName`
-
-### 局部组件
-
-```js
-var login =  {
-    template: '<h1>登录</h1>'
-}
-new Vue({
-    el: '#app',
-    methos:{},
-    components: {
-        login: 'login',
-        register
-    }
-})
-
-```
-
-### 组件传值
-
-#### 父组件给子组件传值 props
-
-1. 在父组件中定义好数据
-2. 组件调用的时候，使用自定义属性的方式接收
-3. 在子组件的注册中，使用`props:['sth']` 接收
-4. 之后可以在子组件的内容中调用传来的数据值
-
-#### 子组件调用父组件的方法
-
-1. 在父组件中定义好的方法
-2. 在实例中使用的组件标签中，接受事件，形式如下 `<cmt @func="parentFun"></cmt>`；
-   接收的事件名（func）可自定义，值为父组件中的方法名；
-   自定义方法名字的时候，不能使用驼峰命名法，可以使用全小写或者肉串命名法。
-3. 在子组件得模板内容中，设置 普通的 触发事件A  
-4. 接收完成后，在子组件的方法A中使用`this.$emit('func')`调用
-
-#### 获取DOM和组件引用
-
-```html
-<p refs="id">test text</p>
-<cmt refs="cmt"></cmt>
-```
-
-```js
-this.$refs.Selector // 用法示例
-this.$refs.id.innnerText // => <p>--> test text
-this.$refs.cmt.message // => <cmt> --> data->message 获取子组件上的data
-this.$refs.cmt.show() // => <cmt> --> methods-> show() 获取子组件上的 methods 中定义的 方法
-```
-
-## 路由
-
-1. 后端路由：对于普通的网站，所有的超链接都是URL地址，所有的URL地址都对应服务器上对应的资源。
-2. 前端路由：对于单页面应用，只要通过URL中的hash（#号）来实现不同页面之间的切换，同时hash有一个特点：HTTP请求中不会包含hash相关的内容；
-3. 在单页面应用程序中，这种通过hash改变切换页面的方式，乘坐前端路由（区别于后端路由）
-
-### 在 Vue 中使用 vue-router
-
-1. 导入 vue-router 组件类库 js文件
-2. 使用 router-link 组件来导航
-
-```html
-<router-link to="/login">登录</router-link>
-<router-link to="/register">注册</router-link>
-```
-
-1. 使用 router-view组件来显示匹配到的组件
-
-```html
-<!-- to="/login" -->
-<router-view>
-    <!-- 显示登录组件的内容 -->
-<router-view>
-```
-
-```js
-// 路由组件的配置和匹配规则
-new Vue({
-    router: new VueRouter({ // 路由对象实例
-            routes: [ // 路由匹配规则
-                { path: '/', redirect: '/login' }, // 默认路由定义
-                { path: '/login', component: login },
-                { path: '/register', component: register },
-            ],
-            linkActiveClass: 'my-active', // 自定义链接激活时候的类名
-        }),
-})
-```
-
-#### 在路由规则中定义参数
-
-1. query方式传参
-2. params方式传参
-
-```html
-<div id="app">
-        <h1>Hello App!</h1>
-        <p>
-            <!-- 使用 query 方式传参 不需要修改 路由规则 中的 path 属性 -->
-            <router-link to="/login?id=10&name=zzc" tag="a" name="lllogin">登录</router-link>
-            <!-- 使用params方式传参 -->
-            <router-link to="/register/12/whh">注册</router-link>
-        </p>
-        <router-view></router-view>
-    </div>
-<scritp>
-new Vue({
-    router: new VueRouter({ // 路由对象实例
-        routes: [ // 路由匹配规则
-            { path: '/', redirect: '/login' },
-            { path: '/login', component: login, name: 'ytf' }, // query 方式传参，不需要修改匹配规则
-            { path: '/register/:id/:name', component: register }, // params 传参，需要 定义 匹配规则
-        ],
-    }),
-})
-</script>
-<!-- 
-    参数传递后，可以在各自的组件定义中，在 created 钩子函数中 拿到：
-    1. this.$route.query.id
-    2. this.$route.params.id
- -->
-```
-
-### 嵌套路由
-
-```js
-const router = new VueRouter({
-  routes: [
-    { path: '/user/:id', component: User,
-      children: [
-        {
-          // 当 /user/:id/profile 匹配成功，
-          // UserProfile 会被渲染在 User 的 <router-view> 中
-          path: 'profile',
-          component: UserProfile
-        },
-        {
-          // 当 /user/:id/posts 匹配成功
-          // UserPosts 会被渲染在 User 的 <router-view> 中
-          path: 'posts',
-          component: UserPosts
-        }
-      ]
-    }
-  ]
-})
-```
-
-### 命名路由

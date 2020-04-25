@@ -293,21 +293,21 @@ useEffect(()=>{
 
 #### Redux
 
-### React Router
+### 路由 React Router
 
-### 安装
+#### 安装
 
 ```js
 npm i react-router-dom -S
 ```
 
-### 组件
+#### 组件
 
 `BrowserRouter` `HashRouter`
 
 `Route` `Link` `Redirect`
 
-### 路由API
+#### 路由API
 
 ```js
 // params 传递 /artical/:id

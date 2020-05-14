@@ -359,7 +359,7 @@ Autoprefixer是一款自动管理浏览器前缀的插件，它可以解析CSS�
 被点击访问过的超链接样式不在具有 hover 和 active 了,解决方法是改变 CSS 属性的
 排列顺序: L-V-H-A（link,visited,hover,active）
 
-## rgba()和 和 y opacity 的透明效果有什么不同？
+## rgba()和 和 opacity 的透明效果有什么不同？
 
 rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作用于元素，以及元素内的所有内容的透明度，
 
@@ -367,7 +367,7 @@ rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作�
 
 
 
-## S CSS 中 中 k link 和t @import 的区别是：
+## SCSS 中  link 和 @import 的区别是：
 
 Link 属于 html 标签，而@import 是 CSS 中提供的
 

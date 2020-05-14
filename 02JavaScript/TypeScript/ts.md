@@ -1,4 +1,4 @@
-#### aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa类类型
+#### 类类型
 
 ```ts
 interface ClockInterface {
@@ -65,7 +65,6 @@ let squre = {} as Squre // 类型断言
 squre.color = 'cyan'
 squre.sideLigth = 10
 squre.penWidth = 6
-
 ```
 
 #### 混合类型
@@ -77,9 +76,9 @@ interface Counter {
   reset(): void
 }
 function getCounter(): Counter {
-  let counter = function(start: number) {} as Counter
+  let counter = function (start: number) {} as Counter
   counter.interval = 123
-  counter.reset = function() {}
+  counter.reset = function () {}
   return counter
 }
 
@@ -87,7 +86,6 @@ let c = getCounter()
 c(10)
 c.reset()
 c.interval = 5.0
-
 ```
 
 #### 接口继承类
@@ -109,9 +107,6 @@ class TextBox extends Control {
 class ImageC implements SelectorContaol {
   select() {}
 }
-
 ```
-
-
 
 #### 基本示例-->继承

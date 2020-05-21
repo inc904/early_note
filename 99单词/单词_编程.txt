@@ -8,7 +8,8 @@ invalid 无效的，不被承认的
 syntax 语法，句法
 reference  引用，参考
 assignment 分配
-- parrern 模式
+
+parrern 模式
 looper 
 enumeration
 filter
@@ -22,3 +23,7 @@ fiddle 修理 调整小提琴
 
 duplicate 复制
 merge 合并
+
+peer 身份地位相同的人
+figure 图形
+feature 特征

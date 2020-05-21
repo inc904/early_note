@@ -15,21 +15,36 @@ var webpack = require('webpack')
 在 `module.exports={}` 添加如下配置：
 
 ```javascript
-plugins: [
-  new webpack.ProvidePlugin({
-    $: 'jquery',
+//......表示省略已有的
 
-    jQuery: 'jquery',
-
-    'windows.jQuery': 'jquery',
-  }),
-]
+module.exports = {
+  // .....................
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      vue$: 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+      jquery: 'jquery', //这里是增加的
+    },
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'windows.jQuery': 'jquery', //这里是增加的
+    }),
+  ],
+  // .....................
+}
 ```
 
 # 在 main.js 中引入
 
 ```javascript
 import $ from 'jquery'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
 ```
 
 # 在 Vue 组件中的 script 块中使用

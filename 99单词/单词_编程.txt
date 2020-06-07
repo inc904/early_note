@@ -27,3 +27,4 @@ merge 合并
 peer 身份地位相同的人
 figure 图形
 feature 特征
+dedicated 专用的

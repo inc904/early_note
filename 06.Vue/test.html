@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试页面</title>
+	<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+	<style>
+		div, ul, li, span, img {
+			margin: 0;
+			padding: 0;
+			/*display: flex;*/
+			box-sizing: border-box;
+		}
+
+		li{
+			list-style: none;
+		}
+		.wrap{
+			height: 30px;
+			position: relative;
+			overflow: hidden;
+		}
+		.list{
+			/*height: 30px;*/
+			background-color: cyan;
+			overflow: hidden;
+			/*position: absolute;
+			top: 0;
+			left: 0;*/
+		}
+		.item{
+			height: 30px;
+			line-height: 30px;
+		}
+		.scroll{
+			margin-top: -30px;
+			transition: 0.1s all;
+		}
+		.red{
+			color: #c9151e
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="wrap">
+			<ul class="list" :class="{scroll: animate}">
+				<li v-for="item in list" class="item">
+					<span class="red" >{{item.name}}</span><span>{{item.city}}</span>杀敌<span>{{item.amount}}</span>万
+				</li>
+			</ul>
+		</div>
+		<p onclick="alert(1)">123</p>
+	</div>
+	<script>
+		const vm = new Vue({
+			el:'#app',
+			data:{
+				animate: false,
+				list: [
+				{
+					name: '1军',
+					city: '北京',
+					amount: '10'
+				},
+				{
+					name: '2军',
+					city: '上海',
+					amount: '20'
+				},
+				{
+					name: '3军',
+					city: '广州',
+					amount: '30'
+				},
+				{
+					name: '4军',
+					city: '重庆',
+					amount: '40'
+				}
+				]
+			},
+			created:function(){
+				setInterval (this.scroll, 2000)
+			},
+			methods:{
+				scroll: function(){
+					this.animate = true
+					setTimeout(()=>{
+						this.list.push(this.list[0])
+						this.list.shift()
+						this.animate = false;
+					}, 500)
+				}
+			}
+		})
+	</script>
+</body>
+</html>

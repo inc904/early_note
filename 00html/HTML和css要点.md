@@ -1,4 +1,3 @@
-# HTML 和 CSS 要点
 ## 1.浏览器以及内核问题
 - IE: trident
 - firefox: gecko
@@ -47,11 +46,50 @@ em:斜体强调标签，强调内容中强调点。
 - web storage 和 cookie 的区别:
   web storage 容量更大，cookie的大小受限制，并且每次请求的时候，cookie 都会被发送出去，浪费带宽。另外，cookie 需要指定作用域，不能跨域调用。
 - 除此之外，Web Storage 拥有 setItem,getItem,removeItem,clear 等方法，不像 cookie需要前端开发者自己封装 setCookie，getCookie。但是 Cookie 也是不可以或缺的：Cookie的作用是与服务器进行交互，作为 HTTP 规范的一部分而存在 ，而 Web Storage 仅仅是为了在本地“存储”数据而生。
+
+
+
+共同点：
+
+- 用于浏览器端存储的缓存数据
+
+不同点：
+
+(1)、存储内容是否发送到服务器端：
+
+- 当设置了Cookie后，数据会发送到服务器端，造成一定的宽带浪费；
+
+- web storage,会将数据保存到本地，不会造成宽带浪费；
+
+(2)、数据存储大小不同：
+
+- Cookie数据不能超过4K,适用于会话标识；
+- web storage数据存储可以达到5M;
+
+(3)、数据存储的有效期限不同：
+
+- cookie只在设置了Cookid过期时间之前一直有效，即使关闭窗口或者浏览器；
+
+- sessionStorage,仅在关闭浏览器之前有效；localStorage,数据存储永久有效；
+
+(4)、作用域不同：cookie和localStorage是在同源同窗口中都是共享的；sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；
+————————————————
+版权声明：本文为CSDN博主「wdlhao」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/wdlhao/article/details/79079660
+
 ## 10. href 和  src
 src 用来替换当前元素，；浏览器解析到这里，会停止其他资源的下载和处理，直到该资源加载编译执行完毕
 href用于在当前文档和引用资源之间确立关系，加载到此处，浏览器会并行下载资源而不会停止对当前文档的处理。
 
+
+
+href 是指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，用于超链接。
+
+src是指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。
+
+当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。
+
 ## 11.盒模型
-- W3C标准盒模型,最后展现的元素的宽度： width = box-width + padding + border > box-width
-- IE盒模型: 最后展现的宽度就是 设定的 盒子的宽地， 也就是说使用了这种模型之后，你在设置border 和 padding 的话，是包含在 之前设置的 width中的，不会超出 width 的值, width = box-width
+- W3C标准盒模型,最后展现的元素的宽度： width = boxWidth + padding + border  >  boxWidth
+- IE盒模型: 最后展现的宽度就是 设定的 盒子的宽地， 也就是说使用了这种模型之后，你在设置border 和 padding 的话，是包含在 之前设置的 width中的，不会超出 width 的值, width = boxWidth = contentWidth + padding + border
 

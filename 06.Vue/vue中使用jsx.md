@@ -1,0 +1,1 @@
+https://github.com/vuejs/babel-plugin-transform-vue-jsx

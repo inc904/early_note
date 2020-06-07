@@ -25,4 +25,11 @@ seldom 20%
 never 0%
 
 +++
+mint  薄荷
+curd	豆腐
+pepper	胡椒粉
+chilly	寒冷的
+conform	符合
+specification	规范
+brief	简明的
 

@@ -5,7 +5,7 @@
   <title>Document</title>
 </head>
 <style>
-  .wrap{
+  .wrap {
     width: 100%;
     height: 4000px;
     background-color: #ccc;
@@ -18,7 +18,7 @@
     border-radius: 10px;
     background-color: red;
   }
-  #btn{
+  #btn {
     width: 20px;
     height: 20px;
     background-color: green;
@@ -26,41 +26,143 @@
     bottom: 0;
     right: 0;
   }
-  #box2{
+  #box2 {
     width: 100px;
     height: 100px;
     background-color: gold;
     margin-top: 1000px;
   }
 </style>
-<body>
-  <div class="wrap">
-
-
-    <div id="box"></div>
-    <div id="box2"></div>
-
-  </div>
-  <div id="btn"></div>
-  <script>
-    function test() {
-      console.log(123)
+<style>
+  .eli {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .eli2 {
+      /* overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; */
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
     }
-    var element2 = document.getElementById("box");
-    var element = document.getElementById("box2");
+  </style>
+  <body>
+    <div class="wrap">
+      <div id="box"></div>
+      <div id="box2"></div>
+    </div>
+    <div id="btn"></div>
+    <p style="width: 80px; background-color: #ccc;" class="eli">
+      asddddddddddddddddddddddddddddddddasdasdsadddddddddddddfads
+    </p>
+    <p style="width: 80px; background-color: #ccc;" class="eli2">
+      asddddddddddddddddddddddddddddddddasdasdsadddddddddddddfads
+    </p>
+    <script>
+      function test() {
+        console.log(123)
+      }
+      var element2 = document.getElementById('box')
+      var element = document.getElementById('box2')
 
-    var btn = document.getElementById("btn");
-    btn.onclick =function(){
-// element.scrollIntoView(true);
-element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+      var btn = document.getElementById('btn')
+      btn.onclick = function () {
+        // element.scrollIntoView(true);
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        })
+      }
 
+      // element.scrollIntoView();
+      // element.scrollIntoView(false);
+      // element.scrollIntoView({block: "end"});
+      // element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+      var Person = function (){}
+      var p = new Person()
+      console.log(Person.prototype === p.__proto__) // true
+      var v1 = {
+        a: 'zzc',
+        b: {
+          name: '123'
+        }
+      }
+      var v2 = Object.assign({},v1)
+      console.log(v2)
+      v2.b.name = '3333'
+      console.log(v1,v2)
+      function clone(origin) {
+       let originProto = Object.getPrototypeOf(origin);
+       return Object.assign(Object.create(originProto), origin);
+     }
+     var c1 = {
+      a: 'zzc',
+      b: {
+        name: '123'
+      }
     }
+    var c2 = clone(c1)
+    c1.b.name = 'zzzc'
+    console.log(c1,c2)
 
+    let node = {
+      type: "Identifier",
+      name: "foo",
+      loc: {
+        start: {
+          line: 1,
+          column: 2
+        },
+        end: {
+          line: 1,
+          column: 4
+        }
+      }
+    };
+    let { loc:{start: localStart} } = node 
+    // console.log(loc)
+    // console.log(start)
+    console.log(localStart)
 
-// element.scrollIntoView();
-// element.scrollIntoView(false);
-// element.scrollIntoView({block: "end"});
-// element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
-</script>
+// 深拷贝
+  function deepCopy(newObj, oldObj) {
+    for (var k in oldObj) {
+      // 判断数据类型 k 是属性名 obj[k] 是属性值
+      // 获取属性值
+      var item = oldObj[k]
+      // 判断数据类型
+      if (item instanceof Array) {
+        newObj[k] = []
+        deepCopy(newObj[k], item)
+      } else if (item instanceof Object) {
+        newObj[k] = {}
+        deepCopy(newObj[k], item)
+      } else {
+        newObj[k] = item
+      }
+    }
+  }
+  var obj = {
+    name: 'zzc',
+    age:"12",
+    school:{
+      name:'qinghua',
+      grade: 2
+    }
+  }
+  var o ={}
+  deepCopy(o, obj)
+  console.log(o)
+  o.school.grade = 3
+  console.log(o,obj)
+
+  </script>
 </body>
 </html>

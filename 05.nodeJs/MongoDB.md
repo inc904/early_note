@@ -1,9 +1,11 @@
 ## 命令行操作 MongoDB
+
 ### 启动和关闭
+
 ```shell
 # 默认使用执行 mongod 命令所处盘符的根目录下的 /data/db 座位自己的数据存储目录， 所以首次启动需要手动创建 /data/db 目录
 # 启动
-mongod 
+mongod
 # 关闭
 # ctrl + c 或者 直接 关闭终端窗口
 # 修改 默认数据存储命令
@@ -11,13 +13,16 @@ mongod --dbpath = 数据存储目录路径
 ```
 
 ### 连接和退出
+
 ```shell
 # 默认连接本机的 MongoDB 服务
 mongo
-# 退出
+# 退出z
 exit
 ```
+
 ### 基本命令
+
 ```shell
 # 查看当前数据库列表
 show dbs
@@ -37,13 +42,19 @@ db.cname.find()
 ```
 
 ## node 中操作 MongoDB
+
 ### 官方包，较为繁琐
+
 `npm i mongodb`
+
 ### mongoose 第三方包，基于官方包，再一次封装，较简洁
+
 `npm i mongoose`
 
 ## mongoose 指南
+
 ### 1.设计 Schema 发布 Model
+
 ```javascript
 var mongoose = require('mongoose')
 
@@ -58,10 +69,9 @@ mongoose.connect('mongodb://localhost/itcast', { useNewUrlParser: true })
 var blogSchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
-  author: String
-
+  author: String,
 })
 
 // 3.mongoose.model() 方法就是将一个 架构 发布 为 model
@@ -72,7 +82,9 @@ var blogSchema = new Schema({
 // 返回值 模型构造函数
 var Blog = mongoose.model('Blog', blogSchema)
 ```
+
 ### 2.操作数据（增删改查）
+
 ```js
 // 4. 操作集合 blogs 中的数据
 // 新增数据

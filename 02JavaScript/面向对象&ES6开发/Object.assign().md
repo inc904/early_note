@@ -111,6 +111,7 @@ Object.assign({a: 'b'}, {[Symbol('c')]: 'd')
    const obj2 = Object.assign({}, obj1)
    obj1.a.b = 2
    // obj2.a.b = 2
+   // obj1.a.b = 2
    ```
 
    
@@ -141,14 +142,12 @@ Object.assign({a: 'b'}, {[Symbol('c')]: 'd')
 
    `Object.assign`可以用来处理数组，但是会把数组视为对象。
 
-```dart
-Object.assign([1, 2, 3], [4, 5])
-// [4, 5, 3]
-```
+  ```dart
+  Object.assign([1, 2, 3], [4, 5])
+  // [4, 5, 3]
+  ```
 
-​	
-
-​			上面代码中，`Object.assign`把数组视为属性名为 0、1、2 的对象，因此源数组的 0 号属性`4`覆盖了目标数组的 0 号属性`1`。
+​	上面代码中，`Object.assign`把数组视为属性名为 0、1、2 的对象，因此源数组的 0 号属性`4`覆盖了目标数组的 0 号属性`1`。
 
 4. 取值函数的处理
 

@@ -24,7 +24,7 @@ for(var i = 0; i < tagList.length; i++){
 console.log(JSON.stringify(tagList))
 ```
 
-或者直接是哪对象过来也行，一样的方法：
+或者直接是拿对象过来也行，一样的方法：
 
 ```
 var obj = {

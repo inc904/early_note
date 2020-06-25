@@ -7,7 +7,7 @@
 返回指定位置的字符
 
 ```js
-'hello'.charAt(3) // o
+'hello'.charAt(3) // l
 ```
 
 ### hasOwnProperty()

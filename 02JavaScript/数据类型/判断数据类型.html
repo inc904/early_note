@@ -1,51 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
     <title>
-        Document
+      Document
     </title>
     <style>
-        .box {
-            width: 100px;
-            height: 100px;
-            background-color: cyan;
-            /* border-radius-left-top: 50%; */
-            border-top-left-radius: 100px;
-        }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: cyan;
+        /* border-radius-left-top: 50%; */
+        border-top-left-radius: 100px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="box"></div>
-    <iframe src="//player.bilibili.com/player.html?aid=58761546&cid=102457433&page=43" scrolling="no" border="0"
-        frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    <!-- <iframe
+      src="//player.bilibili.com/player.html?aid=58761546&cid=102457433&page=43"
+      scrolling="no"
+      border="0"
+      frameborder="no"
+      framespacing="0"
+      allowfullscreen="true"
+    >
+    </iframe> -->
     <script>
-        var a = ['zd', 'qe']
-        var o = {
-            name: 'asd',
-            age: 12
-        }
-        // 1. typeof
-        // typeof 只能简单的判断出 Object，数组和对象 都属于 object
+      var a = ['zd', 'qe']
+      var o = {
+        name: 'asd',
+        age: 12,
+      }
+      // 1. typeof
+      // typeof 只能简单的判断出 Object，数组和对象 都属于 object
 
-        // 2、instanceof 
-        console.log(a instanceof Array) // true
-        console.log(a instanceof Object) //true
-        console.log(o instanceof Array) // false
-        console.log(o instanceof Object) //true
+      // 2、instanceof
+      console.log(a instanceof Array) // true
+      console.log(a instanceof Object) //true
+      console.log(o instanceof Array) // false
+      console.log(o instanceof Object) //true
 
-        //3、 constructor 访问对象类型，访问对象的构造函数
-        console.log(a.constructor) // ƒ Array() { [native code] }
-        console.log(o.constructor) // ƒ Object() { [native code] }      
+      //3、 constructor 访问对象类型，访问对象的构造函数
+      console.log(a.constructor) // ƒ Array() { [native code] }
+      console.log(o.constructor) // ƒ Object() { [native code] }
 
-        //4、 toString(), Object.prototype.toString()
-        console.log(Object.prototype.toString.call(a)) // "[object Array]"
-        console.log(Object.prototype.toString.call(o)) // "[object Object]"
+      //4、 toString(), Object.prototype.toString()
+      console.log(Object.prototype.toString.call(a)) // "[object Array]"
+      console.log(Object.prototype.toString.call(o)) // "[object Object]"
+
+      // var len = 1000
+      // var obj = {
+      //   len: 10,
+      //   fn: function (fn) {
+      //     fn()
+      //     arguments[0]()
+      //     console.log(arguments[0])
+      //   },
+      // }
+      // function fn() {
+      //   console.log(this.len)
+      // }
+      // obj.fn(fn, 1, 2, 3)
     </script>
-</body>
-
+  </body>
 </html>

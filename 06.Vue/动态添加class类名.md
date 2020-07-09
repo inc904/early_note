@@ -1,6 +1,5 @@
 # vue 中动态添加 class 类名
 ```html
-<!-- <template> -->
 	<div>
 		<h2>动态添加类名</h2>
 
@@ -27,7 +26,33 @@
   	<p :class="setClass">通过方法设置class类名</p>
 
 	</div>
-<!-- </template> -->
+
+
+<!-- === 添加样式 === -->
+
+<div id="box">
+            <!--直接添加样式-->
+            <p style="background-color: blue;">sssss</p>
+            <!--绑定样式-->
+            <p v-bind:style="'background-color: red;'">sssss</p>
+            <!--将vue中的属性作为样式设置-->
+            <p :style="obj">sssss</p>
+            <!--将多个属性作为样式设置-->
+            <p :style="[obj,obj1]">sssss</p>
+        </div>
+        <script type="text/javascript">
+            var vm=new Vue({
+                el:"#box",
+                data:{
+                    obj:{
+                        backgroundColor:"gold"
+                    },
+                    obj1:{
+                        fontSize: "30px"
+                    }
+                },
+            });
+        </script>
 
 ```
 ```js
@@ -45,5 +70,5 @@ export default{
     }
   	}
 	}
-}
+
 ```

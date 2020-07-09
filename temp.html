@@ -54,10 +54,10 @@
   </style>
   <body>
     <div class="wrap">
-      <div id="box"></div>
-      <div id="box2"></div>
+      <div id="box">1</div>
+      <div id="box2">2</div>
     </div>
-    <div id="btn"></div>
+    <div id="btn">3</div>
     <p style="width: 80px; background-color: #ccc;" class="eli">
       asddddddddddddddddddddddddddddddddasdasdsadddddddddddddfads
     </p>
@@ -70,15 +70,17 @@
       }
       var element2 = document.getElementById('box')
       var element = document.getElementById('box2')
-
+// var html = document.getElementsByTagNames("html")
+var html = document.getElementsByTagName("html")[0];
       var btn = document.getElementById('btn')
       btn.onclick = function () {
-        // element.scrollIntoView(true);
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-          inline: 'nearest',
-        })
+        html.scrollIntoView(true);
+        console.log(html)
+        // element.scrollIntoView({
+        //   behavior: 'smooth',
+        //   block: 'start',
+        //   inline: 'nearest',
+        // })
       }
 
       // element.scrollIntoView();

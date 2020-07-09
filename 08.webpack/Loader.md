@@ -15,9 +15,9 @@ npm i style-loader css-loader -D
 moduel.exports = {
 	// ...
 	module: { // 配置所有第三方加载器
-	rules: [
-		{test: /\.css$/, use:['style-loader', 'css-loader']} // 调用规则，从右往左依次调用
-	]
+		rules: [
+			{test: /\.css$/, use:['style-loader', 'css-loader']} // 调用规则，从右往左依次调用
+		]
 }
 }
 ```

@@ -39,7 +39,7 @@
       "language": "vue",
       "autoFix": true,
       "prettier.semi": false,
-      "prettier.singleQuote": true,
+      "prettier.singleQuote": true
     }
   ],
 
@@ -51,8 +51,8 @@
       "wrap_attributes": "force-aligned"
     },
     "prettier": {
-      "semi": false, 
-      "singleQuote": true 
+      "semi": false,
+      "singleQuote": true
     }
   },
   "editor.fontFamily": "'Fira Code',Consolas, 'Courier New', monospace",
@@ -64,8 +64,8 @@
 
 ```json
 {
-   "prettier.semi": false,
-    "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.singleQuote": true
 }
 ```
 
@@ -73,40 +73,40 @@
 
 ```json
 {
-    "workbench.colorTheme": "One Dark Pro",
-    "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
-    "editor.fontLigatures": true, // 启用连体字
-    "editor.fontSize": 16,
-    "editor.tabSize": 2,
-    "editor.lineHeight": 28,
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-    },
-    "prettier.semi": false,
-    "prettier.singleQuote": true,
-    "window.zoomLevel": 0,
-    "editor.formatOnSave": true,
-    "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "One Dark Pro",
+  "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true, // 启用连体字
+  "editor.fontSize": 16,
+  "editor.tabSize": 2,
+  "editor.lineHeight": 28,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "window.zoomLevel": 0,
+  "editor.formatOnSave": true,
+  "workbench.iconTheme": "material-icon-theme"
 }
 ```
 
 ```json
 {
-    "workbench.colorTheme": "One Dark Pro",
-    "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 16,
-    "editor.tabSize": 2,
-    "editor.lineHeight": 28,
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-    },
-    "prettier.semi": false,
-    "prettier.singleQuote": true,
-    "window.zoomLevel": 0,
-    "editor.formatOnSave": true,
-    "workbench.iconTheme": "material-icon-theme",
-    "open-in-browser.default": "Chrome",
+  "workbench.colorTheme": "One Dark Pro",
+  "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.tabSize": 2,
+  "editor.lineHeight": 28,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "window.zoomLevel": 0,
+  "editor.formatOnSave": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "open-in-browser.default": "Chrome"
 }
 ```
 
@@ -114,107 +114,106 @@
 
 ```json
 {
-    "javascript.format.semicolons": "remove",
-    "typescript.format.semicolons": "remove",
-    "prettier.semi": false,
-    "prettier.singleQuote": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "javascript.format.semicolons": "remove",
+  "typescript.format.semicolons": "remove",
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  // "eslint.autoFixOnSave": true,
+  // "eslint.validate": [
+  //     "javascript",
+  //     "javascriptreact",
+  //     {
+  //         "language": "vue",
+  //         "autoFix": true,
+  //         "prettier.semi": false,
+  //         "prettier.singleQuote": true,
+  //     }
+  // ],
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "force-aligned"
     },
-    "editor.detectIndentation": false,
-    "editor.tabSize": 2,
-    // "eslint.autoFixOnSave": true,
-    // "eslint.validate": [
-    //     "javascript",
-    //     "javascriptreact",
-    //     {
-    //         "language": "vue",
-    //         "autoFix": true,
-    //         "prettier.semi": false,
-    //         "prettier.singleQuote": true,
-    //     }
-    // ],
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
-    "vetur.format.defaultFormatter.html": "js-beautify-html",
-    "vetur.format.defaultFormatter.js": "vscode-typescript",
-    "vetur.format.defaultFormatterOptions": {
-        "js-beautify-html": {
-            "wrap_attributes": "force-aligned"
-        },
-        "prettier": {
-            "semi": false,
-            "singleQuote": true
-        }
-    },
-    "editor.fontFamily": "'Fira Code',Consolas, 'Courier New', monospace",
-    "editor.fontSize": 16,
-    "editor.lineHeight": 32,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "editor.formatOnSave": true,
+    "prettier": {
+      "semi": false,
+      "singleQuote": true
+    }
+  },
+  "editor.fontFamily": "'Fira Code',Consolas, 'Courier New', monospace",
+  "editor.fontSize": 16,
+  "editor.lineHeight": 32,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true
 }
 ```
 
-### 2020-01-02最舒服的配置
+### 2020-01-02 最舒服的配置
 
 ```json
 {
-    "javascript.format.semicolons": "remove",
-    "typescript.format.semicolons": "remove",
-    "prettier.semi": false,
-    "prettier.singleQuote": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "javascript.format.semicolons": "remove",
+  "typescript.format.semicolons": "remove",
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "javascript.format.insertSpaceBeforeFunc  tionParenthesis": true,
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "force-aligned"
     },
-    "editor.detectIndentation": false,
-    "editor.tabSize": 2,
-    "javascript.format.insertSpaceBeforeFunc  tionParenthesis": true,
-    "vetur.format.defaultFormatter.html": "js-beautify-html",
-    "vetur.format.defaultFormatter.js": "vscode-typescript",
-    "vetur.format.defaultFormatterOptions": {
-        "js-beautify-html": {
-            "wrap_attributes": "force-aligned"
-        },
-        "prettier": {
-            "semi": false,
-            "singleQuote": true
-        }
-    },
-    "editor.fontSize": 18,
-    "editor.lineHeight": 34,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "editor.formatOnSave": true,
-    "window.zoomLevel": 0,
-    "editor.minimap.enabled": true,
-    "editor.renderControlCharacters": false,
-    "editor.renderWhitespace": "none",
-    "editor.fontLigatures": true,
-    "terminal.integrated.rendererType": "dom",
-    "workbench.colorTheme": "One Monokai",
-    "editor.fontFamily": "'Source Code Pro','Fira Code',Consolas, 'Courier New', monospace",
+    "prettier": {
+      "semi": false,
+      "singleQuote": true
+    }
+  },
+  "editor.fontSize": 18,
+  "editor.lineHeight": 34,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "window.zoomLevel": 0,
+  "editor.minimap.enabled": true,
+  "editor.renderControlCharacters": false,
+  "editor.renderWhitespace": "none",
+  "editor.fontLigatures": true,
+  "terminal.integrated.rendererType": "dom",
+  "workbench.colorTheme": "One Monokai",
+  "editor.fontFamily": "'Source Code Pro','Fira Code',Consolas, 'Courier New', monospace"
 }
 ```
 
-# vscode报错，不符和eslint规范，保存时单引号变双引号，代码尾部分号和逗号自动去除
+# vscode 报错，不符和 eslint 规范，保存时单引号变双引号，代码尾部分号和逗号自动去除
 
-在项目根目录下新建.prettierrc（prettier插件的配置文件）文件，在文件中写入
+在项目根目录下新建.prettierrc（prettier 插件的配置文件）文件，在文件中写入
 
 ```json
 {
-  "semi": true,//在代码尾部添加分号
-  "singleQuote": true,//把双引号换成单引号
-  "trailingComma": "es5"//在代码尾部添加逗号
+  "semi": true, //在代码尾部添加分号
+  "singleQuote": true, //把双引号换成单引号
+  "trailingComma": "es5" //在代码尾部添加逗号
 }
 ```
 
-在.eslintrc.js（eslint插件的配置文件）文件中的rules属性中添加
+在.eslintrc.js（eslint 插件的配置文件）文件中的 rules 属性中添加
 
 ```js
 'no-unused-vars': 'warn',//把该条提示信息转换成警告信息
 ```
-

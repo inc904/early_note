@@ -2,8 +2,6 @@
 
 [GitHub](https://github.com/dsznajder/vscode-es7-javascript-react-snippets/blob/master/README.md)
 
-
-
 [![Version](https://camo.githubusercontent.com/af407ac5fdd9f0108305b3b78b49587d629cf34a/68747470733a2f2f76736d61726b6574706c61636562616467652e61707068622e636f6d2f76657273696f6e2f64737a6e616a6465722e6573372d72656163742d6a732d736e6970706574732e737667)](https://vsmarketplacebadge.apphb.com/version-short/dsznajder.es7-react-js-snippets.svg) [![Install](https://camo.githubusercontent.com/0715edf164106798a0d572fa4e50b2eb15f85ca8/68747470733a2f2f76736d61726b6574706c61636562616467652e61707068622e636f6d2f696e7374616c6c732f64737a6e616a6465722e6573372d72656163742d6a732d736e6970706574732e737667)](https://vsmarketplacebadge.apphb.com/installs-short/dsznajder.es7-react-js-snippets.svg) [![Downloads](https://camo.githubusercontent.com/d967eb420aa39d298dcd3805d2580a201632bc98/68747470733a2f2f76736d61726b6574706c61636562616467652e61707068622e636f6d2f646f776e6c6f6164732f64737a6e616a6465722e6573372d72656163742d6a732d736e6970706574732e737667)](https://vsmarketplacebadge.apphb.com/downloads-short/dsznajder.es7-react-js-snippets.svg) [![Ratings](https://camo.githubusercontent.com/e94f7ac9a5c72132e937e0e5910c0045d2c7d702/68747470733a2f2f76736d61726b6574706c61636562616467652e61707068622e636f6d2f726174696e672d73686f72742f64737a6e616a6465722e6573372d72656163742d6a732d736e6970706574732e737667)](https://vsmarketplacebadge.apphb.com/rating-short/dsznajder.es7-react-js-snippets.svg)
 
 This extension provides you JavaScript and React/Redux snippets in ES7 with Babel plugin features for [VS Code](https://code.visualstudio.com/)
@@ -25,7 +23,7 @@ Here is direct link to marketplace [ES7 React/Redux/React-Native/JS Snippets](ht
 
 Every space inside `{ }` and `( )` means that this is pushed into next line :) `$` represent each step after `tab`.
 
-*TypeScript* has own components and own snippets. Use search or just type `ts` before every component snippet.
+_TypeScript_ has own components and own snippets. Use search or just type `ts` before every component snippet.
 
 I.E. `tsrcc`
 
@@ -60,42 +58,42 @@ I.E. `tsrcc`
 
 ## React
 
-| Prefix      | Method                                                       |
-| ----------- | ------------------------------------------------------------ |
-| `imr→`      | `import React from 'react'`                                  |
-| `imrd→`     | `import ReactDOM from 'react-dom'`                           |
-| `imrc→`     | `import React, { Component } from 'react'`                   |
-| `imrcp→`    | `import React, { Component } from 'react' & import PropTypes from 'prop-types'` |
-| `imrpc→`    | `import React, { PureComponent } from 'react'`               |
+| Prefix      | Method                                                                              |
+| ----------- | ----------------------------------------------------------------------------------- |
+| `imr→`      | `import React from 'react'`                                                         |
+| `imrd→`     | `import ReactDOM from 'react-dom'`                                                  |
+| `imrc→`     | `import React, { Component } from 'react'`                                          |
+| `imrcp→`    | `import React, { Component } from 'react' & import PropTypes from 'prop-types'`     |
+| `imrpc→`    | `import React, { PureComponent } from 'react'`                                      |
 | `imrpcp→`   | `import React, { PureComponent } from 'react' & import PropTypes from 'prop-types'` |
-| `imrm→`     | `import React, { memo } from 'react'`                        |
-| `imrmp→`    | `import React, { memo } from 'react' & import PropTypes from 'prop-types'` |
-| `impt→`     | `import PropTypes from 'prop-types'`                         |
-| `imrr→`     | `import { BrowserRouter as Router, Route, Link } from 'react-router-dom'` |
-| `imrs→`     | `import React, { useState } from 'react'`                    |
-| `imrse→`    | `import React, { useState, useEffect } from 'react'`         |
-| `redux→`    | `import { connect } from 'react-redux'`                      |
-| `rconst→`   | `constructor(props) with this.state`                         |
-| `rconc→`    | `constructor(props, context) with this.state`                |
-| `est→`      | `this.state = { }`                                           |
-| `cwm→`      | `componentWillMount = () => { }` DEPRECATED!!!               |
-| `cdm→`      | `componentDidMount = () => { }`                              |
-| `cwr→`      | `componentWillReceiveProps = (nextProps) => { }` DEPRECATED!!! |
-| `scu→`      | `shouldComponentUpdate = (nextProps, nextState) => { }`      |
-| `cwup→`     | `componentWillUpdate = (nextProps, nextState) => { }` DEPRECATED!!! |
-| `cdup→`     | `componentDidUpdate = (prevProps, prevState) => { }`         |
-| `cwun→`     | `componentWillUnmount = () => { }`                           |
-| `gdsfp→`    | `static getDerivedStateFromProps(nextProps, prevState) { }`  |
-| `gsbu→`     | `getSnapshotBeforeUpdate = (prevProps, prevState) => { }`    |
-| `ren→`      | `render() { return( ) }`                                     |
-| `sst→`      | `this.setState({ })`                                         |
-| `ssf→`      | `this.setState((state, props) => return { })`                |
-| `props→`    | `this.props.propName`                                        |
-| `state→`    | `this.state.stateName`                                       |
-| `rcontext→` | `const ${1:contextName} = React.createContext()`             |
-| `cref→`     | `this.${1:refName}Ref = React.createRef()`                   |
-| `fref→`     | `const ref = React.createRef()`                              |
-| `bnd→`      | `this.methodName = this.methodName.bind(this)`               |
+| `imrm→`     | `import React, { memo } from 'react'`                                               |
+| `imrmp→`    | `import React, { memo } from 'react' & import PropTypes from 'prop-types'`          |
+| `impt→`     | `import PropTypes from 'prop-types'`                                                |
+| `imrr→`     | `import { BrowserRouter as Router, Route, Link } from 'react-router-dom'`           |
+| `imrs→`     | `import React, { useState } from 'react'`                                           |
+| `imrse→`    | `import React, { useState, useEffect } from 'react'`                                |
+| `redux→`    | `import { connect } from 'react-redux'`                                             |
+| `rconst→`   | `constructor(props) with this.state`                                                |
+| `rconc→`    | `constructor(props, context) with this.state`                                       |
+| `est→`      | `this.state = { }`                                                                  |
+| `cwm→`      | `componentWillMount = () => { }` DEPRECATED!!!                                      |
+| `cdm→`      | `componentDidMount = () => { }`                                                     |
+| `cwr→`      | `componentWillReceiveProps = (nextProps) => { }` DEPRECATED!!!                      |
+| `scu→`      | `shouldComponentUpdate = (nextProps, nextState) => { }`                             |
+| `cwup→`     | `componentWillUpdate = (nextProps, nextState) => { }` DEPRECATED!!!                 |
+| `cdup→`     | `componentDidUpdate = (prevProps, prevState) => { }`                                |
+| `cwun→`     | `componentWillUnmount = () => { }`                                                  |
+| `gdsfp→`    | `static getDerivedStateFromProps(nextProps, prevState) { }`                         |
+| `gsbu→`     | `getSnapshotBeforeUpdate = (prevProps, prevState) => { }`                           |
+| `ren→`      | `render() { return( ) }`                                                            |
+| `sst→`      | `this.setState({ })`                                                                |
+| `ssf→`      | `this.setState((state, props) => return { })`                                       |
+| `props→`    | `this.props.propName`                                                               |
+| `state→`    | `this.state.stateName`                                                              |
+| `rcontext→` | `const ${1:contextName} = React.createContext()`                                    |
+| `cref→`     | `this.${1:refName}Ref = React.createRef()`                                          |
+| `fref→`     | `const ref = React.createRef()`                                                     |
+| `bnd→`      | `this.methodName = this.methodName.bind(this)`                                      |
 
 ## React Hooks
 

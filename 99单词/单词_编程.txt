@@ -28,3 +28,8 @@ peer 身份地位相同的人
 figure 图形
 feature 特征
 dedicated 专用的
+
+spread 传播
+instance 实例
+wrapper 包装纸
+interceptor 拦截器

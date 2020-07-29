@@ -18,4 +18,4 @@
 obj.hasOwnProperty(prop)
 ```
 
-###
+### reduce

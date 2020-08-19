@@ -31,7 +31,7 @@
 ```html
 // meta 标签
 <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0"/>
-   
+
 ```
 
 ```js
@@ -40,7 +40,7 @@
  * designWidth 设计稿实际宽度
  * maxWidth 制作稿的最大宽度
  * */
-;(function(designWidth, maxWidth){
+ ;(function(designWidth, maxWidth){
     var docEle = document.documentElement;
     //设置viewport
     var meta;
@@ -110,44 +110,40 @@
 })(720, 750);
 ```
 
-```css
-// 样式重置
-/*reset css*/
-body,dl,dd,ul,ol,h1,h2,h3,h4,h5,h6,pre,form,input,textarea,p,hr,thead,tbody,tfoot,th,td{margin:0;padding:0;}
-ul,ol{list-style:none;}
-a{text-decoration:none;}
-html{-ms-text-size-adjust:none;-webkit-text-size-adjust:none;text-size-adjust:none;font-size:50px;}
-body{line-height:1.5;font-size:16px;}
-body,button,input,select,textarea{font-family:'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',5FAE8F6F96C59ED1,5B8B4F53,sans-serif;}
-b,strong{font-weight:bold;}
-i,em{font-style:normal;}
-table{border-collapse:collapse;border-spacing:0;}
-table th,table td{border:1px solid #ddd;padding:5px;}
-table th{font-weight:inherit;border-bottom-width:2px;border-bottom-color:#ccc;}
-img{border:0 none;width:auto;max-width:100%;vertical-align:top;}
-button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;vertical-align:baseline;}
-button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}
-button[disabled],input[disabled]{cursor:default;}
-input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}
-input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}
-input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}
-@media screen and (-webkit-min-device-pixel-ratio:0){
-    input{line-height:normal!important;}
-}
-select[size],select[multiple],select[size][multiple]{border:1px solid #AAA;padding:0;}
-article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}
-audio,canvas,video,progress{display:inline-block;}
-```
 
 ### tuyou
 
 ```js
 //rem适配
-    function resize() {
-            var clientWidth = document.documentElement.clientWidth;
-            document.documentElement.style.fontSize = 100 * (clientWidth / 320) + 'px';
-    };
-    resize();
-    window.addEventListener('resize', resize);
+function resize() {
+    var clientWidth = document.documentElement.clientWidth;
+    document.documentElement.style.fontSize = 100 * (clientWidth / 320) + 'px';
+};
+resize();
+window.addEventListener('resize', resize);
 ```
 
+## 小米 vue 页面 rem 计算函数
+```js
+(function(doc, win) {
+    var docEl = doc.documentElement
+    var designWidth = 720
+    var baseWidth = 320
+    var baseFontSize = 100
+    var giveBaseWidth = 480
+    var giveBaseFontSize = (giveBaseWidth / designWidth) * baseFontSize
+    var resizeEvt = 'orientationchange'in win ? 'orientationchange' : 'resize'
+    recalc = function() {
+        var clientWidth = docEl.clientWidth || baseWidth
+        if (clientWidth > designWidth)
+            clientWidth = designWidth
+        var fontSize = (baseFontSize * clientWidth / designWidth)
+        fontSize = fontSize >= giveBaseFontSize ? giveBaseFontSize : fontSize
+        docEl.style.fontSize = fontSize + 'px'
+        docEl.style.opacity = 1;
+    }
+    doc.addEventListener && (win.addEventListener(resizeEvt, recalc, false),
+        doc.addEventListener('DOMContentLoaded', recalc, false))
+}
+)(document, window)
+```

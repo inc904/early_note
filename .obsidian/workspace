@@ -1,0 +1,90 @@
+{
+  "main": {
+    "id": "f89e8f35758b4ad0",
+    "type": "split",
+    "children": [
+      {
+        "id": "c83e99c6c58f4143",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "01css/css长度单位.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "96ccf9013383f71a",
+    "type": "split",
+    "children": [
+      {
+        "id": "2206a168f1295caa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "313dfe8446577841",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "cb198ecf00f3f91f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": ""
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "47f88385b7e4ea5f",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f47f8813510991d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fd51987016c16008",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "01css/css长度单位.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "lastOpenFiles": [
+    "01css/css长度单位.md",
+    "09.React/Taro/Taro.md",
+    "01css/笔记.md",
+    "compass-style.org.md",
+    "09.React/1000_endmanger.md",
+    "00html/vh.md",
+    "00html/html元素基础知识.md",
+    "00html/重绘重排（回流）.md",
+    "00html/防抖和节流.md",
+    "00html/页面滚动.md"
+  ]
+}

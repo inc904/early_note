@@ -70,8 +70,8 @@
       }
       var element2 = document.getElementById('box')
       var element = document.getElementById('box2')
-// var html = document.getElementsByTagNames("html")
-var html = document.getElementsByTagName("html")[0];
+      // var html = document.getElementsByTagNames("html")
+      var html = document.getElementsByTagName("html")[0];
       var btn = document.getElementById('btn')
       btn.onclick = function () {
         html.scrollIntoView(true);
@@ -134,8 +134,8 @@ var html = document.getElementsByTagName("html")[0];
     console.log(localStart)
 
 // 深拷贝
-  function deepCopy(newObj, oldObj) {
-    for (var k in oldObj) {
+function deepCopy(newObj, oldObj) {
+  for (var k in oldObj) {
       // 判断数据类型 k 是属性名 obj[k] 是属性值
       // 获取属性值
       var item = oldObj[k]
@@ -165,6 +165,6 @@ var html = document.getElementsByTagName("html")[0];
   o.school.grade = 3
   console.log(o,obj)
 
-  </script>
+</script>
 </body>
 </html>

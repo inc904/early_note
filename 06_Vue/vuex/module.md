@@ -18,7 +18,7 @@ const store = new Vuex.Store({
     a: moduleA,
     b: moduleB
   }
-})
+})	
 
 store.state.a // -> moduleA 的状态
 store.state.b // -> moduleB 的状态

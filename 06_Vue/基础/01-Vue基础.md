@@ -150,16 +150,35 @@ data: {
 结果：
 
 ```html
-<div class="static active">
-  
-</div>
+<div class="static active"></div>
 ```
-
-
 
 #### 数组语法
 
 `v-bind:class='Array'`
+
+```html
+<div v-bind:class="[activeClass, errorClass]"></div>
+
+<script>
+export default {
+    data(){
+        return {
+            activeClass: 'active',
+  			errorClass: 'text-danger'
+        }
+    }
+}
+</script>
+<!-- 渲染为 -->
+<div class="active text-danger"></div>
+<!-- 根据条件判断渲染 -->
+<div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
+<!-- 数组语法中也可以使用对象语法 -->
+<div v-bind:class="[{ active: isActive }, errorClass]"></div>
+```
+
+
 
 #### 用在组件上 
 
@@ -168,6 +187,37 @@ data: {
 `v-bind:style=''`
 
 属性值需要用驼峰式 (camelCase) 或短横线分隔 (kebab-case，记得用引号括起来) 来命名
+
+#### 对象语法
+
+```html
+<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+
+<!-- 直接绑定一个样式对象 -->
+<div v-bind:style="styleObject"></div>
+
+<script>
+export default{
+    data(){
+        return {
+              activeColor: 'red',
+			  fontSize: 30,
+            styleObject: {
+                color: 'red',
+                fontSize: '13px'
+              }
+        }
+    }
+}
+</script>
+```
+
+#### 数组语法
+
+```html
+<div v-bind:style="[baseStyles, overridingStyles]"></div>
+
+```
 
 ## 条件渲染
 

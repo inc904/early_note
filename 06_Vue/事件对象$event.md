@@ -1,4 +1,4 @@
-'\$event'是事件对象的特殊变量，在一些场景给我们实现复杂功能提供更多可用的参数。
+`$event ` 是事件对象的特殊变量，在一些场景给我们实现复杂功能提供更多可用的参数。
 
 ## 原生事件
 
@@ -58,6 +58,6 @@
 </script>
 ```
 
-> 文档：https://cn.vuejs.org/v2/guide/events.html#内联处理器中的方法
+> 文档：https://cn.vuejs.org/v2/guide/events.html# 内联处理器中的方法
 
-> https://cn.vuejs.org/v2/guide/components.html#使用事件抛出一个值
+> https://cn.vuejs.org/v2/guide/components.html# 使用事件抛出一个值

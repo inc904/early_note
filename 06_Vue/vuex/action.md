@@ -1,6 +1,6 @@
 ## 概念
 
--  action 提交 mutation ，不直接改变状态
+- action 提交 mutation ，不直接改变状态
 - action 函数的预置参数 context，是一个与store 具有相同方法和属性的 对象，但不是 store 实例本身
 - 可以 调用 context.commit 提交一个 mutation，或者通过 context.store 和 context.getters 来获取 store 和 getters
 

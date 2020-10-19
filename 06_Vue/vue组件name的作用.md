@@ -24,12 +24,12 @@ export default{
                 params:{
                     id: this.$route.params.id
                 }
-            }).then(this.getInfoSucc)
+            }).then(this.getInfoSucc())
     }
 },
 ```
 
-以为我们再 App.vue 中使用了 Keep-alive 导致我们第二次进入的时候页面不会重新请i去，即触发 mounted 函数。有两种解决方法，一个是增加一个 activated() 函数，每次i进入页面的时候再获取一次数据。
+因为我们在 App.vue 中使用了 Keep-alive 导致我们第二次进入的时候页面不会重新请求，即不会触发 mounted 函数。有两种解决方法，一个是增加一个 activated() 函数，每次进入页面的时候再获取一次数据。
 
 还有一个方案就是在 keep-alive 中增加一个过滤：
 
@@ -45,7 +45,7 @@ export default{
 
 比如说 detail.vue 组件里 有一个 list.vue 组件，递归迭代时需要调用自身 name
 
-```vue
+```html
 // list.vue
 <div>
     <div v-for="(item,index) of list" :key="index">

@@ -1,7 +1,7 @@
 ### 认识 function 中的 this 在不同调用环境下的指向
 
 - 事件调用环境：谁触发事件，函数里面的 this 指向就是谁。
-- 全局环境：window，node环境下指向的是：module.exports
+- 全局环境：window，node 环境下指向的是：module.exports
 - 函数内部：
   - this 最终指向的是`调用它的对象`
     - 普通函数直接调用与 window 调用

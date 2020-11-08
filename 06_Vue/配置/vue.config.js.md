@@ -48,12 +48,12 @@ module.exports = {
   // webpack-dev-server 相关配置
   devServer: {
   	open: process.platform === 'darwin',
-   host: '0.0.0.0',//如果是真机测试，就使用这个IP
-   port: 1234,
-   https: false,
-   hotOnly: false,
-   proxy: null, // 设置代理
-   before: app => {}
+    host: '0.0.0.0',//如果是真机测试，就使用这个IP
+    port: 1234,
+    https: false,
+    hotOnly: false,
+    proxy: null, // 设置代理
+    before: app => {}
  },
   // 第三方插件配置
   pluginOptions: {

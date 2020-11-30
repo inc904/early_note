@@ -199,10 +199,12 @@ https://www.jianshu.com/p/7097348cd900
 
 
 
-```swift
+```bash
 npm install --save-dev babel-plugin-import less less-loader style-loader css-loader
+```
 
 安装完后的依赖版本：
+```json
   "devDependencies": {
     "babel-plugin-import": "^1.13.0",
     "css-loader": "^3.2.1",
@@ -227,7 +229,7 @@ npm install react-app-rewired customize-cra --save-dev
 
 
 
-```cpp
+```json
 /* package.json */
 "scripts": {
    "start": "react-app-rewired start",
@@ -240,7 +242,7 @@ npm install react-app-rewired customize-cra --save-dev
 
 
 
-```jsx
+```js
 module.exports = function override(config, env) {
   // do stuff with the webpack config...
   return config;

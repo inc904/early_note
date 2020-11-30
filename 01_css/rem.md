@@ -4,23 +4,13 @@
 
 [简书rem](https://www.jianshu.com/p/d9606faafbaf)
 
-
-
 > Equal to the computed value of "font-size" on the root element
-
-
 
 `rem`是CSS3新增的相对长度单位，是指相对于**根元素**`html`的`font-size`计算值的大小。简单可理解为屏幕宽度的百分比。
 
-
-
 `em`是根据**父级元素**设置大小。
 
-
-
 从IE6到Chrome中，默认根元素的`font-size`都是`16px`的。如果想要设置`12px`的字体大小也就是`12px/16px = 0.75rem`。
-
-
 
 - 由于`px`是相对固定单位，字号大写直接被定死，无法随着浏览器- 进行缩放。
 

@@ -16,3 +16,14 @@
 - `Ctrl + Backspace` 删除前一个单词
 - `Ctrl + Alt +向上下箭头` 复制光标向上下
 - `lorem` 快速生成一段英文
+
+## 折叠 快捷键
+ctrl+k ctrl+0 折叠所有
+ctrl+k ctrl+J 展开所有
+
+ctrl+shift+ [ 折叠当前代码块
+ctrl+shift+ ]	展开当前代码块
+
+## 转换大小写(自定义)
+C+A+u 大写
+C+A+d 小写

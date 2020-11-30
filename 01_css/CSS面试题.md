@@ -4,71 +4,6 @@
 内部样式表，将 css 代码放在 <head> 标签内部
 内联样式，将 css 样式直接定义在 HTML 元素内部
 
-## 行内元素和块级元素
-
-### 块元素：
-
-总是独占一行，宽高内外边距 都可以编辑
-
-### 行内元素：
-
-都在同一行。
-
-### 行内块级元素：
-
-拥有内在尺寸，可设置高宽，
-但不会自动换行
-
-```html
-<input> 、<img> 、<button> 、<texterea> 、<label>
-```
-
-
-
-## CSS盒模型
-
-盒模型：又叫框模型（Box Model ），包含了元素内容（content）、内边距（pading），边框border）、外边框（margin）四要素。
-
-### 标准盒模型
-
-![img](https://mmbiz.qpic.cn/mmbiz/vO7l6lQ0BwoyXkCumvC2M3IoMuw0Q37r3qCiaDuaqQ572y9somVO56iccFgUz04vpy4rXnZ4JJLCJZq0kJ7BKHTQ/640?wx_fmt=other&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
-
-盒子的内层是 content，依次是 padding、border、margin。
-
-通常设置背景时，。是内容、内边距、边框这三个部分，如果border设置了颜色，就会显示 border 的颜色，当 border 的颜色是透明的时候，会显示 background-color 的颜色。 
-
-元素内容的宽度是 width，
-
-元素所占空间是 width+padding+border+margin
-
-### IE盒模型
-
-![img](https://mmbiz.qpic.cn/mmbiz/vO7l6lQ0BwoyXkCumvC2M3IoMuw0Q37rcIJzCSMRBAWjibzlLFKSjdmFfgpgIoXG83JgEPcXHYicUKZZcPzXSHgQ/640?wx_fmt=other&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
-
-元素所占内容宽度是包含 content+padding+ border
-
-## CSS选择器
-
-- 通用选择器： * {}
-- id选择器：#header {}
-- class选择器：.header {}
-- 元素选择器：div {}
-- 子元素选择器：ul>li {}
-- 后代选择器：div p {}
-- 伪类选择器：
-  - hover {}
-  - :first-child{}
-  - :first-of-type
-  - :nth-of-tyoe
-- 伪元素选择器：
-  - :after{}
-  - :before {}
-- 属性选择器：input[type="text"]
-- 组合选择器 
-  - 同级别群组选择器：E,F {}
-  - 直接相邻：E+F {}
-  - 普通相邻：E~F {}
-
 ## CSS属性的继承性
 
 CSS能继承的特性主要是文本方面的继承（比如字体、颜色、字体大小），盒模型相关的属性基本没有继承特性。
@@ -87,35 +22,6 @@ CSS能继承的特性主要是文本方面的继承（比如字体、颜色、�
 /*媒体查询*/
 @media{}
 ```
-
-
-
-## CSS伪类和伪元素
-
-### 伪类：
-
-- :hover
-- :active
-- :first-child
-- :visited
-- 等
-
-### 伪元素：
-
-- :after
-- :before
-- :first-line
-- :first-letter
-
-### 伪类和伪元素的根本区别：
-
-是否创造了新的元素。
-
-### 实际应用
-
-伪类一般用一个冒号表示：`:first-child`
-
-伪元素一般两个冒号表示：`::after`
 
 ## CSS定位规则
 
@@ -154,83 +60,6 @@ position: absolute
 ## **雪碧图实现原理：**
 
 CSS雪碧的基本原理是把你的网站上用到的一些图片整合到一张单独的图片中，从而减少你的网站的HTTP请求数量。该图片使用CSS background和background-position属性渲染，这也就意味着你的标签变得更加复杂了，图片是在CSS中定义，而非<img>标签。
-
-## 水平居中的方案
-
-### 行内元素居中：
-
-看他的 父级 是不是 块级 元素，如果是  直接给父元素 加 `text-align: center;`
-
-如果不是，先将父元素设置成 块级元素，然后再加 `text-align`
-
-### 块级元素水平居中（定宽度）
-
-1. 需要谁居中，给谁设置`margin: 0 auto;`，使盒子自己居中。
-2. 首先设置父元素为相对定位，再设置子元素为绝对定位，设置子元素的 `left:50%;`使得元素的左上角水平居中，然后设置子元素的`margin-left: -子元素的宽度的一半 px`，或者`transform:translateX(-50%)`
-
-### 块级元素水平居中（不定宽度）
-
-1. 默认子元素的宽度和父元素一样，这时需要设置子元素为display: inline-block; 或 display: inline;即将其转换成行内块级/行内元素，给父元素设置 text-align: center;
-2. `transform: translateX(-50%);`
-
-### Flex 布局水平居中（宽度定不定都可以）
-
-```css
-.ather{
-    dispaly: flex;
-    just-content: center;
-}
-```
-
-## 垂直居中
-
-### 单行的行内元素
-
-行高等于盒子高度
-
-### 多行的行内元素
-
-```css
-.father{
-    dispaly: table-cell;
-    vertical-align: middle;
-}
-```
-
-### 块级元素垂直居中
-
-#### 绝对定位
-
-子绝父相，子： top: 50%
-
-然后 margin-top: - 高度的一半 或者 `transform: translateY(-50%);`
-
-#### flex布局
-
-```css
-.father{
-    display: flex;
-    align-item: center;
-}
-```
-
-
-
-## 水平垂直居中
-
-### 定位属性
-
-子绝父相，子元素 设置 `left: 50%; top: 50%; transform: translateX(-50%) translateY(-50%);`
-
-### flex 布局
-
-```css
-.father{
-    dispaly: flex;
-    justify-content: center;
-    align-item: center;
-}
-```
 
 ## BFC布局规则
 
@@ -354,12 +183,12 @@ Autoprefixer是一款自动管理浏览器前缀的插件，它可以解析CSS�
 
 设置宽高为0，透明度为0， z-index： -1000
 
-## 超链接访问过后 r hover 样式就不出现的问题是什么？如何解决？
+## 超链接访问过后  hover 样式就不出现的问题是什么？如何解决？
 
 被点击访问过的超链接样式不在具有 hover 和 active 了,解决方法是改变 CSS 属性的
 排列顺序: L-V-H-A（link,visited,hover,active）
 
-## rgba()和 和 opacity 的透明效果有什么不同？
+## RGBA()和 和 opacity 的透明效果有什么不同？
 
 rgba()和 opacity 都能实现透明效果，但最大的不同是 opacity 作用于元素，以及元素内的所有内容的透明度，
 

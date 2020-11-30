@@ -194,7 +194,7 @@ console.log(newArr);  // -2
 
 
 
-**ES2017新增的幂运算符(\**)**
+- ES2017新增的幂运算符`**`
 
 ```js
 let arr = [2,3,2];
@@ -204,10 +204,6 @@ let newArr = arr.reduce((prev,curr,index,arr)=>{
 });
 console.log(newArr);    // 64
 ```
-
-
-
-
 
 
 

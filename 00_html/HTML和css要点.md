@@ -47,8 +47,6 @@ em:斜体强调标签，强调内容中强调点。
   web storage 容量更大，cookie的大小受限制，并且每次请求的时候，cookie 都会被发送出去，浪费带宽。另外，cookie 需要指定作用域，不能跨域调用。
 - 除此之外，Web Storage 拥有 setItem,getItem,removeItem,clear 等方法，不像 cookie需要前端开发者自己封装 setCookie，getCookie。但是 Cookie 也是不可以或缺的：Cookie的作用是与服务器进行交互，作为 HTTP 规范的一部分而存在 ，而 Web Storage 仅仅是为了在本地“存储”数据而生。
 
-
-
 共同点：
 
 - 用于浏览器端存储的缓存数据

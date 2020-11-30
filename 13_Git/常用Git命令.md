@@ -26,7 +26,7 @@ git config --global user.email 'ytf@aliyun.com'
 
 ## 创建 git 仓库
 
-```shell
+```bash
 ## 初始化当前目录
 git init
 ## 连接远程库
@@ -35,6 +35,12 @@ git remote add 'origin' http://something.git
 git remove -v
 ## 删除库
 git remote rm '库名'
+```
+
+## 修改 git 仓库
+
+```bash
+git remote set-url origin https://......x.git
 ```
 
 ## 获取 git 仓库

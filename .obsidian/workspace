@@ -4,13 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "c83e99c6c58f4143",
+        "id": "81740ed0a2b927b4",
         "type": "leaf",
         "active": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "01css/css长度单位.md",
+            "file": "02_JavaScript/__proto__的默认指向.md",
             "mode": "source"
           }
         }
@@ -64,7 +64,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "01css/css长度单位.md"
+                "file": "02_JavaScript/__proto__的默认指向.md"
               }
             }
           }
@@ -76,6 +76,8 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "02_JavaScript/__proto__的默认指向.md",
+    "02_JavaScript/00_JavaScript基础.md",
     "01css/css长度单位.md",
     "09.React/Taro/Taro.md",
     "01css/笔记.md",
@@ -83,8 +85,6 @@
     "09.React/1000_endmanger.md",
     "00html/vh.md",
     "00html/html元素基础知识.md",
-    "00html/重绘重排（回流）.md",
-    "00html/防抖和节流.md",
-    "00html/页面滚动.md"
+    "00html/重绘重排（回流）.md"
   ]
 }

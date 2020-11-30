@@ -13,10 +13,11 @@
 
 
 
-```swift
+```bash
 npm install --save-dev babel-plugin-import less less-loader style-loader css-loader
-
+```
 安装完后的依赖版本：
+```json
   "devDependencies": {
     "babel-plugin-import": "^1.13.0",
     "css-loader": "^3.2.1",

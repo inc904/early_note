@@ -22,6 +22,14 @@
 npm install -g @vue/cli
 ```
 
+安装了3.0版本还想使用2.0版本创建项目 无需卸载3.0版本。直接安装
+
+`npm i -g @vue/cli-init `
+
+就可以创建cli2的项目了。
+
+[Vue2构建项目实战](https://www.cnblogs.com/zhaowy/p/8513070.html)
+
 ### 查看版本：
 
 ```shell

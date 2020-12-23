@@ -39,7 +39,8 @@ getters:{
 [js 中的多个连续的箭头函数与柯里化](https://zhuanlan.zhihu.com/p/26794822)
 
 高阶函数定义：将函数作为参数或者返回值是函数的函数。
-[06_Vue/vuex/getter.md](06_Vue/vuex/getter.md)
+
+
 ### 使用方式：
 
 第一种方式：通过方法访问

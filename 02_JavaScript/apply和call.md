@@ -76,8 +76,44 @@ var a = [{ id: 1 }, { id: 2 }]
 var b = [{ id: 3 }, { id: 4 }]
 
 a.push.apply(a, b)
-Array.prototype.push(a, b)
+Array.prototype.push.apply(a, b)
 // 二者都可以实现，合并两个数组
 ```
 
 > 一般在目标函数只需要 n 个参数列表,而不接收一个数组的形式（[param1[,param2[,…[,paramN]]]]）,可以通过 apply 的方式巧妙地解决这个问题!
+
+4. 判断数据类型
+
+```js
+function isType(data, type) {
+  const typeObj = {
+    '[object String]': 'string',
+    '[object Number]': 'number',
+    '[object Boolean]': 'boolean',
+    '[object Null]': 'null',
+    '[object Undefined]': 'undefined',
+    '[object Object]': 'object',
+    '[object Array]': 'array',
+    '[object Function]': 'function',
+    '[object Date]': 'date', // Object.prototype.toString.call(new Date())
+    '[object RegExp]': 'regExp',
+    '[object Map]': 'map',
+    '[object Set]': 'set',
+    '[object HTMLDivElement]': 'dom', // document.querySelector('#app')
+    '[object WeakMap]': 'weakMap',
+    '[object Window]': 'window', // Object.prototype.toString.call(window)
+    '[object Error]': 'error', // new Error('1')
+    '[object Arguments]': 'arguments',
+  }
+  let name = Object.prototype.toString.call(data) // 借用Object.prototype.toString()获取数据类型
+  let typeName = typeObj[name] || '未知类型' // 匹配数据类型
+  return typeName === type // 判断该数据类型是否为传入的类型
+}
+
+console.log(
+  isType({}, 'object'), // true
+  isType([], 'array'), // true
+  isType(new Date(), 'object'), // false
+  isType(new Date(), 'date') // true
+)
+```

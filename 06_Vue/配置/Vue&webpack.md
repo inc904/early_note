@@ -66,8 +66,8 @@ var router = new VueRouter({  // 创建路由对象
 const vm = new Vue({
     el: '#app',
     render(c) { return c(App)}, // 把指定组件渲染到 el 区域
-    router // 挂在到Vue实例上
-})
+    router // 挂在到Vue
+    
 ```
 
 改造 App.vue 组件

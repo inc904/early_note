@@ -2,9 +2,7 @@
 
 1. 后端路由：对于普通的网站，所有的超链接都是URL地址，所有的URL地址都对应服务器上对应的资源。
 2. 前端路由：对于单页面应用，只要通过URL中的hash（#号）来实现不同页面之间的切换，同时hash有一个特点：HTTP请求中不会包含hash相关的内容；
-3. 在单页面应用程序中，这种通过hash改变切换页面的方式，乘坐前端路由（区别于后端路由）
-
-### 
+3. 在单页面应用程序中，这种通过hash改变切换页面的方式，乘坐前端路由（区别于后端路由
 
 ### 在 Vue 中使用 vue-router
 
@@ -29,6 +27,7 @@
 // 路由组件的配置和匹配规则
 new Vue({
     router: new VueRouter({ // 路由对象实例
+	        mode:'', // 1. hash 2. history
             routes: [ // 路由匹配规则
                 { path: '/', redirect: '/login' }, // 默认路由定义
                 { path: '/login', component: login },
@@ -72,11 +71,11 @@ new Vue({
         ],
     }),
 })
-<!-- 
-    参数传递后，可以在各自的组件定义中，在 created 钩子函数中 拿到：
-    1. this.$route.query.id
-    2. this.$route.params.id
- -->
+
+  // 数传递后，可以在各自的组件定义中，在 created 钩子函数中 拿到：
+   //  this.$route.query.id
+    /// his.$route.params.id
+
 ```
 
 
@@ -179,15 +178,49 @@ var router = new VueRouter({
 <route-link :to="{name: 'user',params: {id: 007}}">User</route-link>
 ```
 
+### 扩展_命名视图
+
+```html
+// app.vue
+<div id='app'>
+    <div id='nav'>
+        <router-link :to="{name: 'home'}">Home</router-link>
+        <router-link :to="{name: 'about'}">about</router-link>
+    </div>
+    <router-view />   <!-- # 加载默认视图里的组件 -->
+    <router-view name='email' />    <!-- # 加载 email 命名视图中的组件 -->
+    <router-view name='tel' />     <!--  # 加载 tel 命名视图中的组件 -->
+</div>
+```
+
+
+
+```js
+// router.js
+{
+    path: '/named_views',
+    components:{
+    	default: () => import('@/views/child.vue'),
+        email: () => import('@views/email.vue'),
+        tel:() => import('@views/tel.vue')
+     }        
+}
+```
+
 
 
 
 ### vue-router 编程式导航
 
-##### router.push(location)
+##### $router.push(location)
 
 ```js
-router.push({name: 'user', params: {id: 007} } )
+$router.push({name: 'user', params: {id: 007} } )
+$router.push({name: 'user', query: {name: 'jack'} } )
+
+// 使用 path 标识跳转的路径的时候，后面的参数无效，但是可以使用 模板字符串进行传递参数
+$router.push({path: '/user', query: {name: 'jack'} } ) 
+
 ```
 
 ##### router.go(n)
@@ -200,8 +233,36 @@ router.push({name: 'user', params: {id: 007} } )
 
 - beforeEach(to, from, next){ } 前置守卫
 - afterEach(to, from){ } 后置守卫
+- beforeResolve()  导航被确认之前，所有守卫钩子 都触发过了，才触发这个
 
-### 组件内得守卫
+```js
+// router.js
+Vue.use(Router)
+const router = new Router({
+    routes
+})
+
+const HAS_LOGINED =  true
+
+router.beforeEach((to, from, next) => {
+	if(to.name != 'login'){
+        if(HAS_LOGINED) next()
+        else next({name: 'login'})
+    }else{
+        if(HAS_LOGINED) next({name: 'home'})
+        else next()
+    }
+})
+
+router.afterEach((to, from)=>{
+    // loading 操作
+})
+export default router
+```
+
+
+
+#### 组件内的守卫
 
 在路由组件内直接定义。
 
@@ -209,8 +270,74 @@ router.push({name: 'user', params: {id: 007} } )
 - beforeRouteUpdate(to, from, next){ }
 - beforeRouteLeave(to, from, next){ }
 
-### 组件独享得守卫
+```js
+// 组件中的js
+export default {
+    name: 'home-page',
+    beforeRouteEnter(to, from, next){
+        // 路由触发，但是没有进入到 页面 之前， this 不可用噢
+        console.log(to.name)
+        next(vm => {
+            // vm 就是组件的实例 ，在这里可以使用 this
+        }) // 执行跳转操作
+    },
+    beforerouteUpdate(to, from, next){
+        // 组件 路由发生变化，组件被复用，可以访问 this
+    },
+    beforeRouteLeave(to, from, next){
+        // 路由 触发 离开页面 之前
+        // 用途：提示 未保存页面，确认离开否
+        const leave = confirm('确认离开吗？')
+        if(leave) next()
+        else next(false)
+    }
+}
+```
+
+
+
+#### 组件独享的守卫
 
 在路由配置上定义守卫
 
 - beforeEnter(to, from, next){ }
+
+```js
+// router.js 中的 路由规则配置
+{
+    path: '/',
+    name: 'home',
+    component: Home,
+    beforeEnter: (to, from, next)=>{
+		if(from.name === 'login') console.log('this page is from login_page')
+        else console.log('not from login page')
+        next() // 执行跳转
+    }
+}
+```
+
+### 路由元信息
+
+在路由规则上定义元信息
+
+```js
+// router.js
+
+router.beroreEach((to, from, next)=>{
+    if(to.meta && to.meta.title){
+        // 设置 title
+        window.document.title = to.meta.title
+    }
+})
+
+routes:[
+    {
+    	path: '/',
+    	name: 'home',
+    	meta: {
+    		title: '' // 设置 title
+    	}
+	}
+]
+```
+

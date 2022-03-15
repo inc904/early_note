@@ -64,6 +64,8 @@ Vue.component('MyComponentName', { /* ... */ })
 
 引用组件的时候，两种方式都可以。`<my-component-name>` 和 `MyComponentName`
 
+> 建议：组件注册和在DOM中使用，都建议使用`kebab-case` (短横线分隔命名)定义。
+
 ### 局部组件
 
 ```js

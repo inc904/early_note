@@ -1,4 +1,45 @@
-#### 类类型
+## 类类型
+
+### ES6 中类用法
+
+#### 属性和方法
+
+使用`class`定义类,使用`constructor`定义构造函数。
+
+```js
+class Animal {
+  public name
+  constructor(name) {
+    this.name = name
+  }
+  sayHi(){
+    return `My name is  ${this.name}.`
+  }
+}
+
+let a = new Animal('Jerry')
+console.log(a.sayHi()) // My name is Jerry.
+```
+
+#### 类的继承
+
+使用`extends`关键字实现继承，子类中使用`super`关键字调用父类的构造函数和方法。
+
+```js
+class Cat extends Animal {
+  constructor(name) {
+    super(name)
+    console.log(this.name)
+  }
+  sayHi() {
+    return 'Meow,' + super.sayHi() // 调用父类的sayHi()
+  }
+}
+let c = new Cat('Tom')
+console.log(c.sayHi())
+```
+
+### 类类型
 
 ```ts
 interface ClockInterface {
@@ -48,26 +89,26 @@ let digital = createClock(DigitalClock, 12, 12)
 let analog = createClock(AnalogClock, 12, 12)
 ```
 
-#### 继承接口
+## 继承接口
 
-```ts
+```javaScript
 interface Shape {
-  color: string
+  color: string;
 }
 interface PenStrock {
-  penWidth: number
+  penWidth: number;
 }
 interface Squre extends Shape, PenStrock {
-  sideLigth: number
+  sideLigth: number;
 }
 // let squre1: Squre = {} // 缺少类型
-let squre = {} as Squre // 类型断言
-squre.color = 'cyan'
-squre.sideLigth = 10
-squre.penWidth = 6
+let squre = {} as Squre; // 类型断言
+squre.color = "cyan";
+squre.sideLigth = 10;
+squre.penWidth = 6;
 ```
 
-#### 混合类型
+## 混合类型
 
 ```ts
 interface Counter {
@@ -88,7 +129,7 @@ c.reset()
 c.interval = 5.0
 ```
 
-#### 接口继承类
+## 接口继承类
 
 ```ts
 class Control {
@@ -109,4 +150,4 @@ class ImageC implements SelectorContaol {
 }
 ```
 
-#### 基本示例-->继承
+## 基本示例-->继承

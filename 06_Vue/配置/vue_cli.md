@@ -30,6 +30,10 @@ npm install -g @vue/cli
 
 [Vue2构建项目实战](https://www.cnblogs.com/zhaowy/p/8513070.html)
 
+[Vue2项目的建立和目录的简单介绍](https://www.cnblogs.com/future-dream/p/11868566.html)
+
+
+
 ### 查看版本：
 
 ```shell
@@ -38,13 +42,13 @@ vue --version
 
 ### 创建项目：
 
-#### vue-create
+#### vue create 命令
 
 ```shell
 vue create [options] <app-name>
 ```
 
-#### 使用图形化界面
+#### or 使用图形化界面
 
 ```shell
 vue ui

@@ -1,5 +1,4 @@
 {
-  "theme": "obsidian",
   "pluginEnabledStatus": {
     "file-explorer": true,
     "global-search": true,
@@ -12,5 +11,7 @@
   },
   "foldHeading": true,
   "foldIndent": true,
-  "showLineNumber": true
+  "showLineNumber": true,
+  "legacyEditor": false,
+  "livePreview": true
 }
